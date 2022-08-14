@@ -3,30 +3,30 @@
 
 package com.custom
 
-import java.lang.Character.UnicodeBlock;                                            // Language Java pack
-import org.apache.log4j.Logger;                                                     // Logger
-import com.atlassian.jira.component.ComponentAccessor;                              // ComponentAccessor
-import com.atlassian.jira.issue.Issue;                                              // Issue
-import com.atlassian.jira.issue.comments.CommentManager;                            // Comments
-import com.atlassian.jira.issue.IssueManager;                                       // Issue Manager
-import com.atlassian.jira.user.ApplicationUser;                                     // Users
-import com.atlassian.jira.bc.issue.search.SearchService;                            // Searching
-import com.atlassian.jira.web.bean.PagerFilter;                                     // PagerFilter
-import com.atlassian.jira.issue.label.LabelManager;                                 // LabelManager
-import com.atlassian.jira.issue.label.Label;                                        // Label
-import com.atlassian.jira.issue.label.LabelParser;                                  // LabelParser
-import com.atlassian.jira.project.Project;                                          // Project
-import com.atlassian.jira.issue.MutableIssue;                                       // Mutable Issue
-import com.atlassian.jira.event.type.EventDispatchOption;                           // EventDispatch
-import com.atlassian.jira.issue.CustomFieldManager;                                 // CustomField Manger
-import com.atlassian.jira.issue.fields.CustomField;                                 // CustomField
-import com.atlassian.jira.security.groups.GroupManager;                             // GroupManager
-import com.atlassian.jira.issue.fields.config.FieldConfig;                          // Field Config
-import com.atlassian.jira.issue.customfields.manager.OptionsManager;                // OptionsManager
-import com.atlassian.jira.issue.customfields.option.Option;                         // Option
-import com.atlassian.jira.issue.customfields.option.Options;                        // Options
-import com.atlassian.jira.issue.ModifiedValue;                                      // ModifiedValue
-import com.atlassian.jira.issue.util.DefaultIssueChangeHolder;                      // DefaultIssueChangeHolder
+import java.lang.Character.UnicodeBlock;                                 // Language Java pack
+import org.apache.log4j.Logger;                                          // Logger
+import com.atlassian.jira.component.ComponentAccessor;                   // ComponentAccessor
+import com.atlassian.jira.issue.Issue;                                   // Issue
+import com.atlassian.jira.issue.comments.CommentManager;                 // Comments
+import com.atlassian.jira.issue.IssueManager;                            // Issue Manager
+import com.atlassian.jira.user.ApplicationUser;                          // Users
+import com.atlassian.jira.bc.issue.search.SearchService;                 // Searching
+import com.atlassian.jira.web.bean.PagerFilter;                          // PagerFilter
+import com.atlassian.jira.issue.label.LabelManager;                      // LabelManager
+import com.atlassian.jira.issue.label.Label;                             // Label
+import com.atlassian.jira.issue.label.LabelParser;                       // LabelParser
+import com.atlassian.jira.project.Project;                               // Project
+import com.atlassian.jira.issue.MutableIssue;                            // Mutable Issue
+import com.atlassian.jira.event.type.EventDispatchOption;                // EventDispatch
+import com.atlassian.jira.issue.CustomFieldManager;                      // CustomField Manger
+import com.atlassian.jira.issue.fields.CustomField;                      // CustomField
+import com.atlassian.jira.security.groups.GroupManager;                  // GroupManager
+import com.atlassian.jira.issue.fields.config.FieldConfig;               // Field Config
+import com.atlassian.jira.issue.customfields.manager.OptionsManager;     // OptionsManager
+import com.atlassian.jira.issue.customfields.option.Option;              // Option
+import com.atlassian.jira.issue.customfields.option.Options;             // Options
+import com.atlassian.jira.issue.ModifiedValue;                           // ModifiedValue
+import com.atlassian.jira.issue.util.DefaultIssueChangeHolder;           // DefaultIssueChangeHolder
 
 
 class EssentialUtils {
@@ -97,8 +97,8 @@ class EssentialUtils {
         // Если не ок, получаем исключение 
         try{
             // Получаем ID нужной проектной роли
-	    Long roleNameId
-	    if (roleNameId) { roleNameId = getRoleNameId(roleName) }
+            Long roleNameId
+            if (roleNameId) { roleNameId = getRoleNameId(roleName) }
 
             comment.create(
                 issue,
