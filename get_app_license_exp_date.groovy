@@ -11,7 +11,7 @@ import java.time.*
 Date now = Date.from(ZonedDateTime.now().plusDays(1).toInstant()).clearTime()
 
 // User credentials in format: <username:password> to base64
-final String userAuthCred = "<TOKEN>"
+final String userAuthCred = "<token>"
 // Get base JIRA URL and append REST part
 final String baseURL = ComponentAccessor.getApplicationProperties().getString("jira.baseurl") + "/rest/plugins/applications/1.0/installed/jira-software/license"
 
@@ -36,9 +36,9 @@ Date applicationLicenseExpDate = Date.parse("dd/MMM/yy", parsedApplicationLicens
 // If expiration date will be on next day, then add it to list
 // Send email if we have burning down plugins
 if (applicationLicenseExpDate == now) {
-    def subject = "<summary text>"
-    def body = "<body text>"
-    def emailAddr = "<nomail@nomail.ru>"
+    def subject = "Продление лицензии JIRA"
+    def body = "Нужно зайти на my.atlassian.com и сгенерировать Trial License"
+    def emailAddr = "<your mail>"
 
     SMTPMailServer mailServer = ComponentAccessor.getMailServerManager().getDefaultSMTPMailServer();
     if (mailServer) {

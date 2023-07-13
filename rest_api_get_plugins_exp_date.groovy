@@ -9,8 +9,9 @@ import java.time.*
 // Static
 Date now = Date.from(ZonedDateTime.now().plusDays(1).toInstant()).clearTime()
 
-final String userAuthCred = "<TOKEN>"
-final String baseURL = ComponentAccessor.getApplicationProperties().getString("jira.baseurl")
+// User credentials in format: <username:password> to base64
+final String userAuthCred = "<token>"
+final String baseURL = ComponentAccessor.getApplicationProperties().getString("jira.baseurl") + "/rest/plugins/applications/1.0/"
 
 JsonSlurper jsonSlurper = new JsonSlurper()
 
@@ -50,20 +51,18 @@ for (it in userInstalledPlugins){
 
 if (expiredPluginsList) {
     //
-    def subject = "<subject>"
-    def body = "<body>"
+    def subject = "Скоро закончатся лицензии на плагины JIRA"
+    def body = "Список плагинов, которые нужно обновить:<br />"
     expiredPluginsList.each { it ->
         body += "* <b>${it}</b><br />"
     }
-    def emailAddr = "<nomail@nomail.ru>"
-    def ccAddr = "<nomail2@nomail.ru>"
+    def emailAddr = "<your mail>"
 
     SMTPMailServer mailServer = ComponentAccessor.getMailServerManager().getDefaultSMTPMailServer();
     if (mailServer) {
         Email email = new Email(emailAddr);
         email.setSubject(subject);
         email.setBody(body);
-        email.setCc(ccAddr)
         mailServer.send(email);
     }
 }
